@@ -56,6 +56,20 @@ describe('Testes funcionais', () => {
     cy.get('@itemPrice').then(itemPrice => {
       cy.get('[data-test="inventory-item-price"]')
         .should('have.text', itemPrice)
+      cy.get('[data-test="subtotal-label"]')
+        .should('have.text', `Item total: ${itemPrice}`)
     })
+
+    cy.get('[data-test="total-label"]')
+      .should('have.text', 'Total: $32.39')
+
+    cy.get('[data-test="finish"]').click()
+    cy.get('[data-test="pony-express"]').should('exist')
+      .and('be.visible')
+    
+    cy.get('[data-test="complete-header"]')
+      .should('have.text', 'Thank you for your order!')
+    cy.get('[data-test="complete-text"]')
+      .should('have.text', 'Your order has been dispatched, and will arrive just as fast as the pony can get there!')
   })
 })
