@@ -2,7 +2,7 @@
 
 import loc from '../support/locators'
 
-describe('Testes funcionais', () => {
+describe('Functional tests', () => {
 
   beforeEach(() => {
     cy.visit('https://www.saucedemo.com')
@@ -42,34 +42,34 @@ describe('Testes funcionais', () => {
         .should('have.text', itemPrice)
     })
 
-    cy.get('[data-test="checkout"]').click()
-    cy.get('[data-test="firstName"]').type('Test')
-    cy.get('[data-test="lastName"]').type('Cy')
-    cy.get('[data-test="postalCode"]').type('00000-00')
-    cy.get('[data-test="continue"]').click()
+    cy.get(loc.CHECKOUT_INFO.CHECKOUT_PAGE).click()
+    cy.get(loc.CHECKOUT_INFO.FIRST_NAME).type('Test')
+    cy.get(loc.CHECKOUT_INFO.LAST_NAME).type('Cy')
+    cy.get(loc.CHECKOUT_INFO.POSTAL_CODE).type('00000-00')
+    cy.get(loc.CHECKOUT_INFO.BTN_CONTINUE).click()
 
     cy.get('@itemName').then(itemName => {
-      cy.get('[data-test="inventory-item-name"]')        
+      cy.get(loc.CHECKOUT_OVERVIEW.ITEM_NAME)        
         .should('have.text', itemName)
     })
 
     cy.get('@itemPrice').then(itemPrice => {
-      cy.get('[data-test="inventory-item-price"]')
+      cy.get(loc.CHECKOUT_OVERVIEW.ITEM_PRICE)
         .should('have.text', itemPrice)
-      cy.get('[data-test="subtotal-label"]')
+      cy.get(loc.CHECKOUT_OVERVIEW.SUB_TOTAL)
         .should('have.text', `Item total: ${itemPrice}`)
     })
 
-    cy.get('[data-test="total-label"]')
+    cy.get(loc.CHECKOUT_OVERVIEW.PRICE_TOTAL)
       .should('have.text', 'Total: $32.39')
 
-    cy.get('[data-test="finish"]').click()
-    cy.get('[data-test="pony-express"]').should('exist')
+    cy.get(loc.CHECKOUT_OVERVIEW.BTN_FINISH).click()
+    cy.get(loc.CHECKOUT_COMPLETE.DONE_ICON).should('exist')
       .and('be.visible')
     
-    cy.get('[data-test="complete-header"]')
+    cy.get(loc.CHECKOUT_COMPLETE.THNKS_TXT)
       .should('have.text', 'Thank you for your order!')
-    cy.get('[data-test="complete-text"]')
+    cy.get(loc.CHECKOUT_COMPLETE.COMPLETE_TXT)
       .should('have.text', 'Your order has been dispatched, and will arrive just as fast as the pony can get there!')
   })
 })
