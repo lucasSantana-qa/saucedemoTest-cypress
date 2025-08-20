@@ -15,4 +15,5 @@ jobs:
               uses: cypress-io/github-action@v6
               with:
                 build: npm init -y
-                start: npx cypress run --browser chrome
+                start: npx cypress run
+                browser: chrome
