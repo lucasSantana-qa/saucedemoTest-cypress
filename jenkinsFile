@@ -1,0 +1,10 @@
+pipeline {
+    agents any
+        stages {
+            stage ('Executar testes') {
+                steps {
+                    bat 'npm cypress run'
+                }
+            }
+        }
+}
