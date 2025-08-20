@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage ('Executar testes') {
             steps {
+                git 'https://github.com/lucasSantana-qa/saucedemoTest-cypress'
                 bat 'npm cypress run'
             }
         }
