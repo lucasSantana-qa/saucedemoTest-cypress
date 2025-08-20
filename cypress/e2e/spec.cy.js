@@ -8,6 +8,9 @@ describe('Functional tests', () => {
     cy.visit('https://www.saucedemo.com')
     cy.login('standard_user', 'secret_sauce')
     cy.get(loc.HOME.INVENTORY_CONTAINER).should('be.visible')
+    cy.get(loc.HOME.BTN_SIDEBAR).click()
+    cy.get('[data-test="reset-sidebar-link"]').click()
+    cy.get('.bm-cross-button').click()
   })
 
   it('Logout', () => {
@@ -16,7 +19,7 @@ describe('Functional tests', () => {
     cy.get(loc.LOGIN.BTN_LOGIN).should('be.visible')
   })
 
-    it.only('Should buy item', () => {
+    it('Should buy item', () => {
     cy.xpath(`(${loc.HOME.ITEM_LIST}//div[@data-test='inventory-item-name'])[1]`)
       .invoke('text').then(text => {
         cy.wrap(text).as('itemName')
