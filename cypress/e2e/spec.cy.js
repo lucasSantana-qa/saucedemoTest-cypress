@@ -14,7 +14,6 @@ describe('Functional tests', () => {
   })
 
   it('Logout', () => {
-    // teste pipe
     cy.get(loc.HOME.BTN_SIDEBAR).click()
     cy.get(loc.HOME.BTN_LOGOUT).click()
     cy.get(loc.LOGIN.BTN_LOGIN).should('be.visible')
