@@ -11,8 +11,8 @@ When("i set invalid credentials", () => {
     cy.login('usuario invalido', 'secret_sauce')
 })
 
-Then("a message should be visible showing that the credentials are invalid",() => {
-
+Then("the home page should not be visible",() => {
+    cy.get(loc.LOGIN.BTN_LOGIN).should('be.visible')
 })
   // it('Logout', () => {
   //   cy.get(loc.HOME.BTN_SIDEBAR).click()
