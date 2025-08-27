@@ -14,8 +14,3 @@ When("i set invalid credentials", () => {
 Then("the home page should not be visible",() => {
     cy.get(loc.LOGIN.BTN_LOGIN).should('be.visible')
 })
-  // it('Logout', () => {
-  //   cy.get(loc.HOME.BTN_SIDEBAR).click()
-  //   cy.get(loc.HOME.BTN_LOGOUT).click()
-  //   cy.get(loc.LOGIN.BTN_LOGIN).should('be.visible')
-  // })
