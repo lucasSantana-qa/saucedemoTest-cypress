@@ -12,7 +12,9 @@ const locators = {
         BTN_ADD_TO_CART: '[data-test="add-to-cart-sauce-labs-backpack"]',
         BTN_REMOVE_ITEM: '[data-test="remove-sauce-labs-backpack"]',
         ICON_QTY_ITEM: '[data-test="shopping-cart-badge"]',
-        BTN_CART: '[data-test="shopping-cart-link"]'
+        BTN_CART: '[data-test="shopping-cart-link"]',
+        RESET_APP: '[data-test="reset-sidebar-link"]',
+        CLOSE_SIDEBAR: '.bm-cross-button'
     },
     CART: {
         ITEM_NAME: '[data-test="inventory-item-name"]',

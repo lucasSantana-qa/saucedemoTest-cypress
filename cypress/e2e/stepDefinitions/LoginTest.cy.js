@@ -1,10 +1,11 @@
 /// <reference types = "cypress"/>
 
 import { Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps'
-import loc from '../../support/locators'  
+import loc from '../../support/locators' 
+import '../../support/commandsLogin.js'
 
 Given("Im on the login page", () => {
-    cy.visit('https://www.saucedemo.com')
+    cy.visitPage()
 })
 
 When("i set invalid credentials", () => {

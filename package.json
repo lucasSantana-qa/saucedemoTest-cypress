@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:run": "cypress run"
+    "cy:run": "cypress run --env allure=true",
+    "cy:open": "cypress open",
+    "allure:copy-history": "xcopy /E /I /Y allure-report/history allure-results/history",
+    "allure:report": "allure generate allure-results -o allure-report --clean",
+    "allure:open": "allure open allure-report"
   },
   "keywords": [],
   "author": "",

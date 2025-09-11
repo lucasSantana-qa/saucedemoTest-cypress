@@ -2,14 +2,18 @@
 
 import { Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps'
 import loc from '../../support/locators'
+import '../../support/commandsLogin'
+import '../../support/commandsHome'
 
 Given("im logged in", () => {
-  cy.visit('https://www.saucedemo.com')
-  cy.login('standard_user', 'secret_sauce')
+  cy.visitPage()
+  cy.fixture("validUser").then(user => {
+    cy.login(user.name, user.passwd)
+  })
   cy.get(loc.HOME.INVENTORY_CONTAINER).should('be.visible')
-  cy.get(loc.HOME.BTN_SIDEBAR).click()
-  cy.get('[data-test="reset-sidebar-link"]').click()
-  cy.get('.bm-cross-button').click()
+  cy.accessSideBar()
+  cy.get(loc.HOME.RESET_APP).click()
+  cy.get(loc.HOME.CLOSE_SIDEBAR).click()
 })
 
 When("an item is added to the cart", () => {
@@ -23,10 +27,10 @@ When("an item is added to the cart", () => {
       cy.wrap(text).as('itemPrice')
   })
 
-  cy.get(loc.HOME.BTN_ADD_TO_CART).click()
+  cy.addToCart()
   cy.get(loc.HOME.BTN_REMOVE_ITEM).should('be.visible')
   cy.get(loc.HOME.ICON_QTY_ITEM).should('be.visible')
-  cy.get(loc.HOME.BTN_CART).click()
+  cy.accessCart()
 })
 
 And("put checkout informations", () => {
