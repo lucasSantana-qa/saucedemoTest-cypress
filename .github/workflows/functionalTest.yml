@@ -10,6 +10,7 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
+              
             - name: Cypress run
               with:
                 build: npm i -D @shelex/cypress-allure-plugin
