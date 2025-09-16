@@ -11,7 +11,7 @@ module.exports = defineConfig({
       return config
     },
     env: {
-        allureResultsPath: "allure-results",  // pasta onde os resultados são gravados
+        allureResultsPath: "allure-results",
         allureHistoryPath: "allure-history"
     }
   },
