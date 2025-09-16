@@ -13,6 +13,6 @@ jobs:
             - name: Cypress run
               uses: cypress-io/github-action@v6
               with:
-                build: npm install
+                build: npm install -y
                 browser: chrome
-                command: npx cypress run
+                command: npm cy:run
