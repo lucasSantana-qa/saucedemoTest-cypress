@@ -15,4 +15,4 @@ jobs:
               with:
                 build: npm install -y
                 browser: chrome
-                command: npm cy:run
+                command: npm run cy:run
