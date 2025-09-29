@@ -26,9 +26,8 @@ jobs:
         env:
           allure: true
         
-      - name: Debug allure-results
-        run: ls -R allure-results
-
+      - name: Debug workspace
+        run: ls -R
 
       - name: Get Allure history
         uses: actions/checkout@v4
