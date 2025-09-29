@@ -12,7 +12,7 @@ module.exports = defineConfig({
     },
     env: {
         allureResultsPath: "allure-results",
-        allureHistoryPath: "allure-history"
+        // allureHistoryPath: "allure-history"
     }
   },
 });

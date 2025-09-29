@@ -25,6 +25,10 @@ jobs:
           command: npx cypress run
         env:
           allure: true
+        
+      - name: Debug allure-results
+        run: ls -R allure-results
+
 
       - name: Get Allure history
         uses: actions/checkout@v4
