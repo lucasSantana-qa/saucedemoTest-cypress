@@ -12,9 +12,6 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
-        
-            - name: Checkout
-              uses: actions/checkout@v4
 
             - name: Install dependencies
               run: npm install
@@ -28,6 +25,9 @@ jobs:
                 command: npx cypress run
               env:
                 allure: true
+
+            - name: generate allure-report
+              run: npx allure generate --clean && npx allure open
 
             - name: get Allure history
               uses: actions/checkout@v4
