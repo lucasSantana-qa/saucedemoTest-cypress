@@ -15,3 +15,25 @@ jobs:
               with:
                 build: npm i -D @shelex/cypress-allure-plugin
               uses: cypress-io/github-action@v6
+
+            - name: get Allure history
+              uses: actions/checkout@v4
+              if: always()
+              continue-on-error: true
+              with:
+                ref: gh-pages
+                path: gh-pages
+
+            - name: Allure Report action from repo
+              uses: ./
+              with:
+                allure_results: allure-results
+                allure_history: allure-history
+                keep_reports: 20
+
+            - name: Deploy report to Github Pages
+              uses: peaceiris/actions-gh-pages@v4
+              with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_branch: gh-pages
+                publish_dir: allure-history
