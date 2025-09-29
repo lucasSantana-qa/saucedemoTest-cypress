@@ -19,13 +19,9 @@ jobs:
       - name: Install Allure plugin
         run: npm install -D @shelex/cypress-allure-plugin
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          command: npx cypress run
-        env:
-          allure: true
-        
+      - name: Run Cypress tests
+        run: npx cypress run --env allure=true
+
       - name: Debug workspace
         run: ls -R
 
