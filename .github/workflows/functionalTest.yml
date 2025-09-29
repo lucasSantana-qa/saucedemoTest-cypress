@@ -27,7 +27,7 @@ jobs:
                 allure: true
 
             - name: generate allure-report
-              run: npx allure generate --clean && npx allure open
+              run: allure generate allure-results -o allure-report --clean
 
             - name: get Allure history
               uses: actions/checkout@v4
