@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","2697","Buy item","","Wed Oct 22 19:28:08 UTC 2025","passed","Wed Oct 22 19:28:11 UTC 2025","","Shopping","",""
+"","1398","Try login with invalid credentials","","Wed Oct 22 19:28:02 UTC 2025","passed","Wed Oct 22 19:28:04 UTC 2025","","Login","",""
