@@ -63,7 +63,7 @@ And("put checkout informations", () => {
   })
 
   cy.get(loc.CHECKOUT_OVERVIEW.PRICE_TOTAL)
-    .should('have.text', 'Total: $32.39')
+    .should('have.text', 'Total: $32.80')
   cy.get(loc.CHECKOUT_OVERVIEW.BTN_FINISH).click()
 })
 
