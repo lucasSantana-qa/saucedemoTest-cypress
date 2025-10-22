@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Functional test') {
             steps {
-                echo 'Testing build ${env.BUILD_ID}'
+                echo "Testing build ${env.BUILD_ID}"
             }
         }
     }
